@@ -11,7 +11,7 @@ class Cliente extends Model
 
     protected $fillable = [
 
-        'nome_Cliente',
+        'nome_cliente',
         'telefone_cliente',
         'logradouro_cliente',
         'numero_endereco_cliente',
@@ -22,8 +22,8 @@ class Cliente extends Model
 
     ];
 
-    public function veiculos()
-    {
-        return $this->hasMany(Veiculo::class);
-    }
+    // public function veiculos()
+    // {
+    //     return $this->hasMany(Veiculo::class);
+    // }
 }

@@ -15,6 +15,11 @@ class OrdemServico extends Model
         'data_criacao'
     ];
 
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class);
+    }
+
     public function veiculo()
     {
         return $this->belongsTo(Veiculo::class);

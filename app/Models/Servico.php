@@ -13,8 +13,8 @@ class Servico extends Model
         'descricao', 'valor'
     ];
 
-    public function ordensServicos()
-    {
-        return $this->belongsToMany(OrdemServico::class);
-    }
+    // public function ordensServicos()
+    // {
+    //     return $this->belongsToMany(OrdemServico::class);
+    // }
 }
