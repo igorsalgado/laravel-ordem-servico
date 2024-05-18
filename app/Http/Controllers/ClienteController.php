@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ClienteRequest;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 
@@ -27,18 +28,8 @@ class ClienteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
-        $request->validate([
-            'nome_cliente' => 'required',
-            'telefone_cliente' => 'required',
-            'logradouro_cliente' => 'required',
-            'numero_endereco_cliente' => 'required',
-            'bairro_cliente' => 'required',
-            'cidade_cliente' => 'required',
-            'estado_cliente' => 'required',
-            'cep_cliente' => 'required'
-        ]);
 
         Cliente::create($request->all());
         return redirect()->route('clientes.index')->with('success', 'Cliente criado com sucesso');
@@ -63,18 +54,8 @@ class ClienteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(ClienteRequest $request, Cliente $cliente)
     {
-        $request->validate([
-            'nome_cliente' => 'required',
-            'telefone_cliente' => 'required',
-            'logradouro_cliente' => 'required',
-            'numero_endereco_cliente' => 'required',
-            'bairro_cliente' => 'required',
-            'cidade_cliente' => 'required',
-            'estado_cliente' => 'required',
-            'cep_cliente' => 'required'
-        ]);
 
         $cliente->update($request->all());
         return redirect()->route('clientes.index')->with('success', 'Cliente atualizado com sucesso');

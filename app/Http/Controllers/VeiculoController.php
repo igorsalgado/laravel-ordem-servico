@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Veiculo;
 use Illuminate\Http\Request;
+use App\Http\Requests\VeiculoRequest;
 
 class VeiculoController extends Controller
 {
@@ -27,15 +28,8 @@ class VeiculoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(VeiculoRequest $request)
     {
-        $request->validate([
-            'cliente_id' => 'required',
-            'modelo_veiculo' => 'required',
-            'placa_veiculo' => 'required',
-            'ano_veiculo' => 'required',
-            'cor_veiculo' => 'required'
-        ]);
 
         Veiculo::create($request->all());
         return redirect()->route('veiculos.index')->with('success', 'Veículo adicionado com sucesso !!');
@@ -60,15 +54,9 @@ class VeiculoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Veiculo $veiculo)
+    public function update(VeiculoRequest $request, Veiculo $veiculo)
     {
-        $request->validate([
-            'cliente_id' => 'required',
-            'modelo_veiculo' => 'required',
-            'placa_veiculo' => 'required',
-            'ano_veiculo' => 'required',
-            'cor_veiculo' => 'required'
-        ]);
+
 
         $veiculo->update($request->all());
         return redirect()->route('veiculos.index')->with('success', 'Veículo atualizado com sucesso !!!');

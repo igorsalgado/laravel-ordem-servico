@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Servico;
 use Illuminate\Http\Request;
+use App\Http\Requests\ServicoRequest;
 
 class ServicoController extends Controller
 {
@@ -27,12 +28,8 @@ class ServicoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ServicoRequest $request)
     {
-        $request->validate([
-            'descricao' => 'required',
-            'valor' => 'required'
-        ]);
 
         Servico::create($request->all());
         return redirect()->route('servicos.index')->with('success', 'Serviço cadastrado com sucesso !!');
@@ -57,12 +54,8 @@ class ServicoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Servico $servico)
+    public function update(ServicoRequest $request, Servico $servico)
     {
-        $request->validate([
-            'descricao' => 'required',
-            'valor' => 'required'
-        ]);
 
         $servico->update($request->all());
         return redirect()->route('servicos.index')->with('success', 'Serviço atualizado com sucesso !!');

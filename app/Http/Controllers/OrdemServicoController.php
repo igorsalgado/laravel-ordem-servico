@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\OrdemServico;
 use Illuminate\Http\Request;
+use App\Http\Requests\OrdemServicoRequest;
 
 class OrdemServicoController extends Controller
 {
@@ -27,16 +28,8 @@ class OrdemServicoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(OrdemServicoRequest $request)
     {
-        $request->validate([
-            'id_cliente' => 'required',
-            'id_veiculo' => 'required',
-            'id_servico' => 'required',
-            'valor_total' => 'required',
-            'data_criacao' => 'required'
-        ]);
-
         OrdemServico::create($request->all());
         return redirect()->route('ordem-servico.index')->with('success', 'Ordem de Serviço N° X gerada com sucesso !!');
     }
@@ -60,15 +53,8 @@ class OrdemServicoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, OrdemServico $ordemServico)
+    public function update(OrdemServicoRequest $request, OrdemServico $ordemServico)
     {
-        $request->validate([
-            'id_cliente' => 'required',
-            'id_veiculo' => 'required',
-            'id_servico' => 'required',
-            'valor_total' => 'required',
-            'data_criacao' => 'required'
-        ]);
 
         $ordemServico->update($request->all());
         return redirect()->route('ordem-servico.index')->with('success', 'Ordem de Servico N° X atualizada com sucesso !!');
