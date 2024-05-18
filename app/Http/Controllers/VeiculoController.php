@@ -54,7 +54,7 @@ class VeiculoController extends Controller
      */
     public function edit(Veiculo $veiculo)
     {
-        return view('veiculos.edit', compact('veiculos'));
+        return view('veiculos.edit', compact('veiculo'));
     }
 
     /**

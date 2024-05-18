@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
-// use App\Http\Controllers\ServicoController;
-// use App\Http\Controllers\OrdemServicoController;
+use App\Http\Controllers\ServicoController;
+use App\Http\Controllers\OrdemServicoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VeiculoController;
@@ -35,7 +35,7 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('clientes', ClienteController::class);
 Route::resource('veiculos', VeiculoController::class);
-// Route::resource('servicos', ServicoController::class);
-// Route::resource('ordemservicos', OrdemServicoController::class);
+Route::resource('servicos', ServicoController::class);
+Route::resource('ordemservicos', OrdemServicoController::class);
 
 require __DIR__ . '/auth.php';
