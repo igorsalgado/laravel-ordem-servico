@@ -20,7 +20,7 @@ use App\Http\Controllers\VeiculoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/dashboard', function () {
@@ -36,6 +36,6 @@ Route::middleware('auth')->group(function () {
 Route::resource('clientes', ClienteController::class);
 Route::resource('veiculos', VeiculoController::class);
 Route::resource('servicos', ServicoController::class);
-Route::resource('ordemservicos', OrdemServicoController::class);
+Route::resource('ordem-servicos', OrdemServicoController::class);
 
 require __DIR__ . '/auth.php';
