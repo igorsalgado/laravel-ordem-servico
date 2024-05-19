@@ -24,6 +24,7 @@ class ClienteRequest extends FormRequest
         return [
 
             'nome_cliente' => ['required', 'string'],
+            'email_cliente' => ['required', 'email'],
             'telefone_cliente' => ['required', 'string'],
             'logradouro_cliente' => ['required', 'string'],
             'numero_endereco_cliente' => ['required', 'string'],
