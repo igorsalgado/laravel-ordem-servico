@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      */
@@ -40,6 +48,7 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
+
         return view('clientes.show', compact('cliente'));
     }
 
