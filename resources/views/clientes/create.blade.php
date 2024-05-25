@@ -12,40 +12,51 @@
                     <form action="{{ route('clientes.store') }}" method="POST">
                         @csrf
                         <div class="mb-4">
-                            <label for="nome_cliente" class="block text-sm font-medium text-gray-700">Nome</label>
-                            <input type="text" name="nome_cliente" id="nome_cliente" class="mt-1 block w-full" required>
+                            <label for="nome_cliente" class="block text-sm font-medium text-white">Nome</label>
+                            <input type="text" name="nome_cliente" id="nome_cliente"
+                                class="mt-1 block w-full text-gray-900" required>
                         </div>
                         <div class="mb-4">
-                            <label for="email_cliente" class="block text-sm font-medium text-gray-700">Email</label>
-                            <input type="email" name="email_cliente" id="email_cliente" class="mt-1 block w-full" required>
+                            <label for="email_cliente" class="block text-sm font-medium text-white">Email</label>
+                            <input type="email" name="email_cliente" id="email_cliente"
+                                class="mt-1 block w-full text-gray-900" required>
                         </div>
                         <div class="mb-4">
-                            <label for="telefone_cliente" class="block text-sm font-medium text-gray-700">Telefone</label>
-                            <input type="text" name="telefone_cliente" id="telefone_cliente" class="mt-1 block w-full" required>
+                            <label for="telefone_cliente" class="block text-sm font-medium text-white">Telefone</label>
+                            <input type="text" name="telefone_cliente" id="telefone_cliente"
+                                class="mt-1 block w-full text-gray-900" required>
                         </div>
                         <div class="mb-4">
-                            <label for="logradouro_cliente" class="block text-sm font-medium text-gray-700">Logradouro</label>
-                            <input type="text" name="logradouro_cliente" id="logradouro_cliente" class="mt-1 block w-full" required>
+                            <label for="logradouro_cliente"
+                                class="block text-sm font-medium text-white">Logradouro</label>
+                            <input type="text" name="logradouro_cliente" id="logradouro_cliente"
+                                class="mt-1 block w-full text-gray-900" required>
                         </div>
                         <div class="mb-4">
-                            <label for="numero_endereco_cliente" class="block text-sm font-medium text-gray-700">Número</label>
-                            <input type="text" name="numero_endereco_cliente" id="numero_endereco_cliente" class="mt-1 block w-full" required>
+                            <label for="numero_endereco_cliente"
+                                class="block text-sm font-medium text-white">Número</label>
+                            <input type="text" name="numero_endereco_cliente" id="numero_endereco_cliente"
+                                class="mt-1 block w-full text-gray-900" required>
                         </div>
                         <div class="mb-4">
-                            <label for="bairro_cliente" class="block text-sm font-medium text-gray-700">Bairro</label>
-                            <input type="text" name="bairro_cliente" id="bairro_cliente" class="mt-1 block w-full" required>
+                            <label for="bairro_cliente" class="block text-sm font-medium text-white">Bairro</label>
+                            <input type="text" name="bairro_cliente" id="bairro_cliente"
+                                class="mt-1 block w-full text-gray-900" required>
                         </div>
                         <div class="mb-4">
-                            <label for="cidade_cliente" class="block text-sm font-medium text-gray-700">Cidade</label>
-                            <input type="text" name="cidade_cliente" id="cidade_cliente" class="mt-1 block w-full" required>
+                            <label for="cidade_cliente" class="block text-sm font-medium text-white">Cidade</label>
+                            <input type="text" name="cidade_cliente" id="cidade_cliente"
+                                class="mt-1 block w-full text-gray-900" required>
                         </div>
                         <div class="mb-4">
-                            <label for="estado_cliente" class="block text-sm font-medium text-gray-700">Estado</label>
-                            <input type="text" name="estado_cliente" id="estado_cliente" class="mt-1 block w-full" required>
+                            <label for="estado_cliente" class="block text-sm font-medium text-white">Estado</label>
+                            <input type="text" name="estado_cliente" id="estado_cliente"
+                                class="mt-1 block w-full text-gray-900" required>
                         </div>
                         <div class="mb-4">
-                            <label for="cep_cliente" class="block text-sm font-medium text-gray-700">CEP</label>
-                            <input type="text" name="cep_cliente" id="cep_cliente" class="mt-1 block w-full" required>
+                            <label for="cep_cliente" class="block text-sm font-medium text-white">CEP</label>
+                            <input type="text" name="cep_cliente" id="cep_cliente"
+                                class="mt-1 block w-full text-gray-900" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Salvar</button>
                     </form>
