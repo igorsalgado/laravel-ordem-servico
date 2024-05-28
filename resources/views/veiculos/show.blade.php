@@ -1,39 +1,38 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
             {{ __('Veículo: ') }} {{ $veiculo->modelo_veiculo }}
+        </h2>
+        <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
             {{ __('Cliente: ') }} {{ $veiculo->cliente->nome_cliente }}
         </h2>
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h3 class="text-lg font-medium text-gray-900 dark:text-gray-200">Informações do veiculo</h3>
                     <div class="mt-4">
-                        <p><strong>Nome:</strong> {{ $veiculo->nome_veiculo }}</p>
-                        <p><strong>Email:</strong> {{ $veiculo->email_veiculo }}</p>
-                        <p><strong>Telefone:</strong> {{ $veiculo->telefone_veiculo }}</p>
-                        <p><strong>Logradouro:</strong> {{ $veiculo->logradouro_veiculo }}</p>
-                        <p><strong>Número:</strong> {{ $veiculo->numero_endereco_veiculo }}</p>
-                        <p><strong>Bairro:</strong> {{ $veiculo->bairro_veiculo }}</p>
-                        <p><strong>Cidade:</strong> {{ $veiculo->cidade_veiculo }}</p>
-                        <p><strong>Estado:</strong> {{ $veiculo->estado_veiculo }}</p>
-                        <p><strong>CEP:</strong> {{ $veiculo->cep_veiculo }}</p>
+                        <p><strong>Proprietário:</strong> {{ $veiculo->cliente->nome_cliente }}</p>
+                        <p><strong>Contato:</strong> {{ $veiculo->cliente->telefone_cliente }}</p>
+                        <p><strong>Modelo:</strong> {{ $veiculo->modelo_veiculo }}</p>
+                        <p><strong>Placa:</strong> {{ $veiculo->placa_veiculo }}</p>
+                        <p><strong>Ano:</strong> {{ $veiculo->ano_veiculo }}</p>
+                        <p><strong>Cor:</strong> {{ $veiculo->cor_veiculo }}</p>
                     </div>
 
                     <div class="mt-6">
                         <a href="{{ route('veiculos.index') }}"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded inline-block mb-1 sm:mb-0">Voltar</a>
+                            class="inline-block px-3 py-1 mb-1 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 sm:mb-0">Voltar</a>
                         <a href="{{ route('veiculos.edit', $veiculo->id) }}"
-                            class= "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-3 rounded inline-block mb-1 sm:mb-0 background">Editar</a>
+                            class= "inline-block px-3 py-1 mb-1 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-700 sm:mb-0 background">Editar</a>
                         <form action="{{ route('veiculos.destroy', $veiculo->id) }}" method="POST"
                             style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit"
-                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded inline-block">Excluir</button>
+                                class="inline-block px-3 py-1 font-bold text-white bg-red-500 rounded hover:bg-red-700">Excluir</button>
                         </form>
                     </div>
                 </div>
