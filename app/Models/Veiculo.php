@@ -20,6 +20,6 @@ class Veiculo extends Model
 
     public function cliente()
     {
-        return $this->belongsTo(Cliente::class);
+        return $this->belongsTo(Cliente::class,'id_cliente');
     }
 }
