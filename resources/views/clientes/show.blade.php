@@ -23,18 +23,16 @@
                     </div>
 
                     <div class="mt-6">
-                        <a href="{{ route('clientes.index') }}" class="btn btn-secondary">
-                            Voltar
-                        </a>
-                        <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-primary">
-                            Editar
-                        </a>
-                        <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" class="inline-block">
+                        <a href="{{ route('clientes.index') }}"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded inline-block mb-1 sm:mb-0">Voltar</a>
+                        <a href="{{ route('clientes.edit', $cliente->id) }}"
+                            class= "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-3 rounded inline-block mb-1 sm:mb-0 background">Editar</a>
+                        <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST"
+                            style="display:inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar este cliente?')">
-                                Deletar
-                            </button>
+                            <button type="submit"
+                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded inline-block">Excluir</button>
                         </form>
                     </div>
                 </div>

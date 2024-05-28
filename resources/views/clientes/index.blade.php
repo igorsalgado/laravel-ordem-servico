@@ -36,9 +36,9 @@
                                         </td>
                                         <td class="border border-gray-300 px-4 py-2 text-center">
                                             <a href="{{ route('clientes.show', $cliente->id) }}"
-                                                class="text-white font-bold py-1 px-3 rounded inline-block mb-1 sm:mb-0">Ver</a>
+                                                class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded inline-block mb-1 sm:mb-0">Ver</a>
                                             <a href="{{ route('clientes.edit', $cliente->id) }}"
-                                                class= "text-white font-bold py-1 px-3 rounded inline-block mb-1 sm:mb-0 background">Editar</a>
+                                                class= "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-3 rounded inline-block mb-1 sm:mb-0 background">Editar</a>
                                             <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST"
                                                 style="display:inline-block;">
                                                 @csrf

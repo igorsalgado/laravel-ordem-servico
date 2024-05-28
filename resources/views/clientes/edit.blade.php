@@ -64,7 +64,7 @@
                             <input type="text" name="cep_cliente" id="cep_cliente"
                                 class="mt-1 block w-full text-gray-900" value="{{ $cliente->nome_cliente }}" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Atualizar</button>
+                        <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded inline-block">Atualizar</button>
                     </form>
                 </div>
             </div>
