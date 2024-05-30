@@ -23,7 +23,7 @@ class ServicoRequest extends FormRequest
     {
         return [
             'descricao' => ['required', 'string'],
-            'valor' => ['required', 'integer'],
+            'valor' => ['required'],
         ];
     }
 }

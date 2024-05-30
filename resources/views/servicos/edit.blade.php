@@ -20,14 +20,14 @@
                         @csrf
                         @method('PUT')
                         <div class="mb-4">
-                            <label for="modelo_servico" class="block text-sm font-medium text-white">Descrição</label>
-                            <input type="text" name="modelo_servico" id="modelo_servico"
+                            <label for="descricao" class="block text-sm font-medium text-white">Descrição</label>
+                            <input type="text" name="descricao" id="descricao"
                                 class="block w-full mt-1 text-gray-900" value="{{ $servico->descricao }}" required>
                         </div>
                         <div class="mb-4">
-                            <label for="placa_servico" class="block text-sm font-medium text-white">Valor</label>
-                            <input type="text" name="placa_servico" id="placa_servico"
-                                class="block w-full mt-1 text-gray-900" value="{{ $servico->valor }}" required>
+                            <label for="valor" class="block text-sm font-medium text-white">Valor</label>
+                            <input type="number" name="valor" id="valor" class="block w-full mt-1 text-gray-900"
+                                value="{{ $servico->valor }}" required>
                         </div>
                         <button type="submit"
                             class="inline-block px-3 py-1 font-bold text-white bg-green-500 rounded hover:bg-green-700">Atualizar</button>
