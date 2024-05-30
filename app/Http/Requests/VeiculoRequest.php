@@ -22,7 +22,6 @@ class VeiculoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cliente_id' => 'required|exists:clientes,id',
             'modelo_veiculo' => ['required', 'string'],
             'placa_veiculo' => ['required', 'string'],
             'ano_veiculo' => ['required', 'string'],
