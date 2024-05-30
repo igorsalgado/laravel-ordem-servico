@@ -66,7 +66,7 @@ class ClienteController extends Controller
     public function update(ClienteRequest $request, Cliente $cliente)
     {
 
-        $cliente->update($request->all());
+        $cliente->update($request->validated());
         return redirect()->route('clientes.index')->with('success', 'Cliente atualizado com sucesso');
     }
 
