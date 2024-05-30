@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('cliente_id');
             $table->string('modelo_veiculo',);
             $table->string('placa_veiculo',);
-            $table->integer('ano_veiculo',);
+            $table->string('ano_veiculo',);
             $table->string('cor_veiculo',);
             $table->timestamps();
 

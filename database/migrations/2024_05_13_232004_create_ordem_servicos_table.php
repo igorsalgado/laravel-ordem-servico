@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('cliente_id');
             $table->unsignedBigInteger('veiculo_id');
-            $table->decimal('valor_total');
+            $table->integer('valor_total');
             $table->date('data_criacao');
             $table->timestamps();
 
