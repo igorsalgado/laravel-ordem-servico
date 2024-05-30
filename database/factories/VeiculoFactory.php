@@ -22,7 +22,7 @@ class VeiculoFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_cliente' => Cliente::factory(),
+            'cliente_id' => Cliente::factory(),
             'modelo_veiculo' => $this->faker->firstName(),
             'placa_veiculo' => strtoupper($this->faker->bothify('???####')),
             'ano_veiculo' => $this->faker->year,

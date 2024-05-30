@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use App\Models\Veiculo;
 use Illuminate\Http\Request;
 use App\Http\Requests\VeiculoRequest;
@@ -22,7 +23,8 @@ class VeiculoController extends Controller
      */
     public function create()
     {
-        return view('veiculos.create');
+        $clientes = Cliente::all();
+        return view('veiculos.create', compact('clientes'));
     }
 
     /**
@@ -58,7 +60,7 @@ class VeiculoController extends Controller
     {
 
 
-        $veiculo->update($request->all());
+        $veiculo->update($request->validated());
         return redirect()->route('veiculos.index')->with('success', 'Veículo atualizado com sucesso !!!');
     }
 
