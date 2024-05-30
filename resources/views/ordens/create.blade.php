@@ -14,7 +14,8 @@
                             {{ session('success') }}
                         </div>
                     @endif
-                    <form action="{{ route('ordem-servicos.store') }}" method="POST">
+
+                    <form action="{{ route('ordens.store') }}" method="POST">
                         @csrf
 
                         <div class="mb-4">
@@ -36,21 +37,23 @@
                                 @endforeach
                             </select>
                         </div>
-
                         <div class="mb-4">
-                            <label for="servico_id" class="block text-sm font-medium text-white">Serviço</label>
-                            <select name="servico_id" id="servico_id" class="mt-1 block w-full text-gray-900" required>
-                                <option value="">Selecione um Serviço</option>
-                                @foreach ($servicos as $servico)
-                                    <option value="{{ $servico->id }}">{{ $servico->descricao }}</option>
-                                @endforeach
-                            </select>
+                            <label class="block text-sm font-medium text-white">Serviços</label>
+                            <div>
+                                <select id="servico_select" class="mt-1 block w-full text-gray-900">
+                                    <option value="">Selecione um Serviço</option>
+                                    @foreach ($servicos as $servico)
+                                        <option value="{{ $servico->id }}" data-valor="{{ $servico->valor }}">
+                                            {{ $servico->descricao }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
 
                         <div class="mb-4">
-                            <label for="valor_total" class="block text-sm font-medium text-white">Valor</label>
+                            <label class="block text-sm font-medium text-white">Valor Total</label>
                             <input type="number" name="valor_total" id="valor_total"
-                                class="mt-1 block w-full text-gray-900" required>
+                                class="mt-1 block w-full text-gray-900" readonly>
                         </div>
 
                         <div class="mb-4">
@@ -59,6 +62,16 @@
                                 class="mt-1 block w-full text-gray-900" required>
                         </div>
 
+                        <div class="mb-4">
+                            <label class="block font-medium text-white">Serviços Adicionados</label>
+                            <div id="servicos_container">
+                                <table class="w-full border-collapse border border-gray-300">
+                                    <tbody id="servicos_body">
+                                        <!-- Serviços adicionados serão inseridos aqui -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                         <div class="flex items-center justify-end mt-4">
                             <button type="submit"
                                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -70,5 +83,7 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/adicionar_servico.js') }}"></script>
     <script src="{{ asset('js/buscar_veiculos.js') }}"></script>
+
 </x-app-layout>

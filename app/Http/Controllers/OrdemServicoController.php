@@ -16,8 +16,8 @@ class OrdemServicoController extends Controller
      */
     public function index()
     {
-        $ordemServico = OrdemServico::all();
-        return view("ordem-servicos.index", compact("ordemservico"));
+        $ordem = OrdemServico::all();
+        return view("ordens.index", compact('ordem'));
     }
 
     /**
@@ -29,7 +29,7 @@ class OrdemServicoController extends Controller
         $veiculos = collect();
         $servicos = Servico::all();
 
-        return view("ordem-servicos.create", compact('clientes', 'veiculos', 'servicos'));
+        return view("ordens.create", compact('clientes', 'veiculos', 'servicos'));
     }
 
     /**
@@ -38,41 +38,47 @@ class OrdemServicoController extends Controller
     public function store(OrdemServicoRequest $request)
     {
         OrdemServico::create($request->all());
-        return redirect()->route('ordem-servico.index')->with('success', 'Ordem de Serviço N° X gerada com sucesso !!');
+        return redirect()->route('ordens.index')->with('success', 'Ordem de Serviço N° X gerada com sucesso !!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(OrdemServico $ordemServico)
+    public function show(OrdemServico $ordem)
     {
-        return view('ordem-servicos.show', compact('ordemServico'));
+        return view('ordens.show', compact('ordem'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(OrdemServico $ordemServico)
+    public function edit(OrdemServico $ordem)
     {
-        return view('servicos.edit', compact('servico'));
+        return view('ordens.edit', compact('ordem'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(OrdemServicoRequest $request, OrdemServico $ordemServico)
+    public function update(OrdemServicoRequest $request, OrdemServico $ordem)
     {
 
-        $ordemServico->update($request->all());
-        return redirect()->route('ordem-servico.index')->with('success', 'Ordem de Servico N° X atualizada com sucesso !!');
+        $ordem->update($request->all());
+        return redirect()->route('ordens.index')->with('success', 'Ordem de Servico N° X atualizada com sucesso !!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(OrdemServico $ordemServico)
+    public function destroy(OrdemServico $ordem)
     {
-        $ordemServico->delete();
-        return redirect()->route('ordem-servico.index')->with('success', 'Ordem de Servico N° X atualizada com sucesso !!');
+        $ordem->delete();
+        return redirect()->route('ordens.index')->with('success', 'Ordem de Servico N° X atualizada com sucesso !!');
+    }
+
+    public function selecionarServicos()
+    {
+        $servicos = Servico::all();
+        return response()->json(['servicos' => $servicos]);
     }
 }

@@ -37,10 +37,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('clientes', ClienteController::class);
     Route::resource('veiculos', VeiculoController::class);
     Route::resource('servicos', ServicoController::class);
-    Route::resource('ordem-servicos', OrdemServicoController::class);
+    Route::resource('ordens', OrdemServicoController::class);
 
     //Requisições
     Route::get('/buscar-veiculos/{clienteId}', [VeiculoController::class, 'buscarVeiculos']);
+    Route::get('/selecionar-servicos', [OrdemServicoController::class, 'selecionarServicos']);
 });
 
 
