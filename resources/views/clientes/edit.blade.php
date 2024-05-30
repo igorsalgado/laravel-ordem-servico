@@ -11,7 +11,6 @@
                     <form action="{{ route('clientes.update', $cliente->id) }}" method="POST">
                         @csrf
                         @method('PUT')
-                        <!-- Campos do formulário para editar os dados do cliente -->
                         <div class="mb-4">
                             <label for="nome_cliente" class="block text-sm font-medium text-white">Nome</label>
                             <input type="text" name="nome_cliente" id="nome_cliente"
@@ -61,7 +60,7 @@
                         <div class="mb-4">
                             <label for="cep_cliente" class="block text-sm font-medium text-white">CEP</label>
                             <input type="text" name="cep_cliente" id="cep_cliente"
-                                class="block w-full mt-1 text-gray-900" value="{{ $cliente->nome_cliente }}" required>
+                                class="block w-full mt-1 text-gray-900" value="{{ $cliente->cep_cliente }}" required>
                         </div>
                         <button type="submit"
                             class="inline-block px-3 py-1 font-bold text-white bg-green-500 rounded hover:bg-green-700">Atualizar</button>
