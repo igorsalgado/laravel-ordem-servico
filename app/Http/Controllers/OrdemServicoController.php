@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
+use App\Models\Servico;
+use App\Models\Veiculo;
 use App\Models\OrdemServico;
 use Illuminate\Http\Request;
 use App\Http\Requests\OrdemServicoRequest;
@@ -20,9 +23,13 @@ class OrdemServicoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view("ordem-servicos.create");
+        $clientes = Cliente::all();
+        $veiculos = collect();
+        $servicos = Servico::all();
+
+        return view("ordem-servicos.create", compact('clientes', 'veiculos', 'servicos'));
     }
 
     /**

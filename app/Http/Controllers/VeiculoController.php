@@ -72,4 +72,11 @@ class VeiculoController extends Controller
         $veiculo->delete();
         return redirect()->route('veiculos.index')->with('success', 'Veiculo removido com sucesso');
     }
+
+    public function buscarVeiculos($clienteId)
+    {
+
+        $veiculos = Veiculo::where('cliente_id', $clienteId)->get();
+        return response()->json($veiculos);
+    }
 }
