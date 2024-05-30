@@ -13,8 +13,8 @@ class ServicoController extends Controller
      */
     public function index()
     {
-        $servico = Servico::all();
-        return view('servicos.index', compact('servico'));
+        $servicos = Servico::all();
+        return view('servicos.index', compact('servicos'));
     }
 
     /**
