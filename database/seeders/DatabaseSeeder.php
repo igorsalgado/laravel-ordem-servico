@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Cliente::factory(10)->create()->each(function ($cliente) {
-            Veiculo::factory(2)->create(['id_cliente' => $cliente->id]);
+            Veiculo::factory(2)->create(['cliente_id' => $cliente->id]);
         });
 
         Servico::factory(10)->create();
