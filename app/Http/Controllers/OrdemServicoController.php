@@ -37,8 +37,9 @@ class OrdemServicoController extends Controller
      */
     public function store(OrdemServicoRequest $request)
     {
-        OrdemServico::create($request->all());
-        return redirect()->route('ordens.index')->with('success', 'Ordem de Serviço N° X gerada com sucesso !!');
+        // OrdemServico::create($request->all());
+        // return redirect()->route('ordens.index')->with('success', 'Ordem de Serviço N° X gerada com sucesso !!');
+        dd($request->all());
     }
 
     /**
