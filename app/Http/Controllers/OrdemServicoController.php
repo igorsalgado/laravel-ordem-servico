@@ -46,25 +46,25 @@ class OrdemServicoController extends Controller
             $ordem->servicos()->attach($request->servicos);
         }
 
-        dd($request->all());
-        // return redirect()->route('ordens.index')->with('success', 'Ordem de Serviço N° ' . $ordemServico->id . ' gerada com sucesso !!');
+        //dd($request->all());
+        return redirect()->route('ordens.index')->with('success', 'Ordem de Serviço N° 00' . $ordem->id . ' gerada com sucesso !!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(OrdemServico $ordem)
+    public function show($id)
     {
-        return view('ordens.show', compact('ordens'));
+        // Carrega a ordem de serviço com as relações de cliente, veículo e serviços
+        $ordem = OrdemServico::with(['cliente', 'veiculo', 'servicos'])->findOrFail($id);
+        return view('ordens.show', compact('ordem'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(OrdemServico $ordem)
-    {
-        return view('ordens.edit', compact('ordem'));
-    }
+
+    // public function edit(OrdemServico $ordem)
+    // {
+    //     return view('ordens.edit', compact('ordem'));
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -73,16 +73,17 @@ class OrdemServicoController extends Controller
     {
 
         $ordem->update($request->all());
-        return redirect()->route('ordens.index')->with('success', 'Ordem de Servico N° X atualizada com sucesso !!');
+        return redirect()->route('ordens.index')->with('success', 'Ordem de Serviço N° 00' . $ordem->id . ' atualizada com sucesso !!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(OrdemServico $ordem)
+    public function destroy($id)
     {
+        $ordem = OrdemServico::with(['cliente', 'veiculo', 'servicos'])->findOrFail($id);
         $ordem->delete();
-        return redirect()->route('ordens.index')->with('success', 'Ordem de Servico N° X atualizada com sucesso !!');
+        return redirect()->route('ordens.index')->with('success', 'Ordem de Serviço N° 00' . $ordem->id . ' atualizada com sucesso !!');
     }
 
     public function selecionarServicos()
