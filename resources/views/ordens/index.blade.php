@@ -42,9 +42,6 @@
                                             <a href="{{ route('ordens.show', $ordem->id) }}"
                                                 class="inline-block px-4 py-1 mb-1 font-bold text-white bg-green-500 rounded hover:bg-green-700 sm:mb-0">Ver</a>
 
-                                            <a href="{{ route('ordens.edit', $ordem->id) }}"
-                                                class= "inline-block px-4 py-1 mb-1 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-700 sm:mb-0 background">Editar</a>
-
                                             <form action="{{ route('ordens.destroy', $ordem->id) }}" method="POST"
                                                 style="display:inline-block;">
                                                 @csrf
