@@ -47,7 +47,7 @@ class OrdemServicoController extends Controller
      */
     public function show(OrdemServico $ordem)
     {
-        return view('ordens.show', compact('ordem'));
+        return view('ordens.show', compact('ordens'));
     }
 
     /**
