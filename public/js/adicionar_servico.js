@@ -1,59 +1,46 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.getElementById('adicionar_servico').addEventListener('click', function() {
     var servicoSelect = document.getElementById('servico_select');
-    var servicosBody = document.getElementById('servicos_body');
-    var valorTotal = document.getElementById('valor_total');
+    var servicoId = servicoSelect.value;
+    var servicoDescricao = servicoSelect.options[servicoSelect.selectedIndex].text;
+    var servicoValor = parseFloat(servicoSelect.options[servicoSelect.selectedIndex].getAttribute('data-valor'));
 
-    servicoSelect.addEventListener('change', function() {
-        var selectedOption = servicoSelect.options[servicoSelect.selectedIndex];
-        var servicoId = selectedOption.value;
-        var servicoDescricao = selectedOption.textContent;
-        var servicoValor = parseInt(selectedOption.dataset.valor); // Convertendo para número
+    if (!servicoId) return;
 
-        if (!servicoId) {
-            return;
-        }
+    var tabelaServicos = document.getElementById('servicos_body');
+    var novaLinha = tabelaServicos.insertRow();
+    var cellDescricao = novaLinha.insertCell(0);
+    var cellValor = novaLinha.insertCell(1);
+    var cellRemover = novaLinha.insertCell(2);
 
-        var newRow = servicosBody.insertRow();
-        newRow.dataset.servicoId = servicoId;
-        newRow.dataset.valor = servicoValor;
+    cellDescricao.innerText = servicoDescricao;
+    cellValor.innerText = `R$ ${servicoValor.toFixed(2)}`;
+    cellRemover.innerHTML = '<button type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded remover_servico">Remover</button>';
 
-        var cell = newRow.insertCell(0);
-        cell.classList.add('border', 'border-gray-300', 'p-2');
-        cell.textContent = servicoDescricao;
+    // Adiciona um input hidden para enviar o ID do serviço selecionado
+    var inputHidden = document.createElement('input');
+    inputHidden.type = 'hidden';
+    inputHidden.name = 'servicos[]';
+    inputHidden.value = servicoId;
+    novaLinha.appendChild(inputHidden);
 
-        var removerButton = document.createElement('button');
-        removerButton.type = 'button';
-        removerButton.classList.add('remover_servico', 'bg-red-500', 'hover:bg-red-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded', 'ml-2');
-        removerButton.textContent = 'X';
-        removerButton.addEventListener('click', function() {
-            newRow.remove();
-            calcularValorTotal();
+    atualizarValorTotal();
+
+    document.querySelectorAll('.remover_servico').forEach(button => {
+        button.addEventListener('click', function() {
+            this.closest('tr').remove();
+            atualizarValorTotal();
         });
-        cell.appendChild(removerButton);
-
-        // Limpar o select após adicionar o serviço à tabela
-        servicoSelect.selectedIndex = 0;
-
-        calcularValorTotal();
     });
 
-    function calcularValorTotal() {
-        var total = 0;
-        var rows = servicosBody.querySelectorAll('tr');
-        rows.forEach(function(row) {
-            var valor = parseInt(row.dataset.valor);
-            if (!isNaN(valor)) {
-                total += valor;
-            }
-        });
-        valorTotal.value = total.toFixed(2);
-    }
-
-    document.addEventListener('click', function(event) {
-        if (event.target.classList.contains('remover_servico')) {
-            var row = event.target.parentElement.parentElement;
-            row.remove();
-            calcularValorTotal();
-        }
-    });
+    // Reseta o select de serviços
+    servicoSelect.value = '';
 });
+
+function atualizarValorTotal() {
+    var valorTotal = 0;
+    document.querySelectorAll('#servicos_body tr').forEach(tr => {
+        var valorServico = parseFloat(tr.cells[1].innerText.replace('R$', '').trim());
+        valorTotal += valorServico;
+    });
+    document.getElementById('valor_total').value = valorTotal.toFixed(2);
+}

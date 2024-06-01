@@ -10,9 +10,8 @@ class OrdemServico extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_cliente',
-        'id_veiculo',
-        'id_servico',
+        'cliente_id',
+        'veiculo_id',
         'valor_total',
         'data_criacao'
     ];
@@ -26,14 +25,8 @@ class OrdemServico extends Model
     {
         return $this->belongsTo(Veiculo::class);
     }
-
-    // public function user()
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
-
     public function servicos()
     {
-        return $this->belongsToMany(Servico::class);
+        return $this->belongsToMany(Servico::class, 'ordem_servico_servicos');
     }
 }

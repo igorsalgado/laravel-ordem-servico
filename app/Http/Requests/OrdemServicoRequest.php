@@ -22,7 +22,12 @@ class OrdemServicoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'data_criacao' => ['required', 'date']
+            'cliente_id' => 'required|exists:clientes,id',
+            'veiculo_id' => 'required|exists:veiculos,id',
+            'data_criacao' => 'required|date',
+            'valor_total' => 'required|numeric|min:0',
+            'servicos' => 'array',
+            'servicos.*' => 'exists:servicos,id',
         ];
     }
 }
