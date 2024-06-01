@@ -16,8 +16,8 @@ class OrdemServicoController extends Controller
      */
     public function index()
     {
-        $ordem = OrdemServico::all();
-        return view("ordens.index", compact('ordem'));
+        $ordens = OrdemServico::all();
+        return view("ordens.index", compact('ordens'));
     }
 
     /**
@@ -37,9 +37,17 @@ class OrdemServicoController extends Controller
      */
     public function store(OrdemServicoRequest $request)
     {
-        // OrdemServico::create($request->all());
-        // return redirect()->route('ordens.index')->with('success', 'Ordem de Serviço N° X gerada com sucesso !!');
+
+        // Criação da Ordem de Serviço
+        $ordem = OrdemServico::create($request->all());
+
+        // Associar serviços à ordem de serviço na tabela pivot
+        if ($request->has('servicos')) {
+            $ordem->servicos()->attach($request->servicos);
+        }
+
         dd($request->all());
+        // return redirect()->route('ordens.index')->with('success', 'Ordem de Serviço N° ' . $ordemServico->id . ' gerada com sucesso !!');
     }
 
     /**
