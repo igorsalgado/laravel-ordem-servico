@@ -66,16 +66,27 @@
     <div class="header">
         <h2>Ordem de Serviço</h2>
         <p><strong>Número:</strong> {{ '00' . $ordem->id }}</p>
+        <p><strong>Data de Criação:</strong> {{ \Carbon\Carbon::parse($ordem->data_criacao)->format('d/m/Y') }}</p>
+
     </div>
     <div class="info">
         <div class="left">
             <p><strong>Cliente:</strong> {{ $ordem->cliente->nome_cliente }}</p>
             <p><strong>Telefone:</strong> {{ $ordem->cliente->telefone_cliente }}</p>
+            <p><strong>Endereço:</strong>
+                {{ $ordem->cliente->logradouro_cliente . ', N° ' . $ordem->cliente->numero_endereco_cliente }}
+            </p>
+            <p><strong>Email:</strong> {{ $ordem->cliente->email_cliente }}</p>
         </div>
         <div class="right">
-            <p><strong>Veículo:</strong> {{ $ordem->veiculo->modelo_veiculo }} | {{ $ordem->veiculo->placa_veiculo }}
-            </p>
-            <p><strong>Data de Criação:</strong> {{ \Carbon\Carbon::parse($ordem->data_criacao)->format('d/m/Y') }}</p>
+            <p><strong>Veículo:</strong>
+                {{ $ordem->veiculo->modelo_veiculo }}</p>
+            <p><strong>Placa:</strong>
+                {{ $ordem->veiculo->placa_veiculo }}</p>
+            <p><strong>Cor:</strong>
+                {{ $ordem->veiculo->cor_veiculo }}</p>
+            <p><strong>Ano:</strong>
+                {{ $ordem->veiculo->ano_veiculo }}</p>
         </div>
         <div class="clear"></div>
     </div>
