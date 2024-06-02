@@ -23,15 +23,15 @@ class ClienteRequest extends FormRequest
     {
         return [
 
-            'nome_cliente' => ['required', 'string'],
-            'email_cliente' => ['required', 'email'],
-            'telefone_cliente' => ['required', 'string'],
-            'logradouro_cliente' => ['required', 'string'],
-            'numero_endereco_cliente' => ['required', 'string'],
-            'bairro_cliente' => ['required', 'string'],
-            'cidade_cliente' => ['required', 'string'],
-            'estado_cliente' => ['required', 'string'],
-            'cep_cliente' => ['required', 'string'],
+            'nome_cliente' => 'required|string|max:255',
+            'email_cliente' => 'required|email|max:255',
+            'telefone_cliente' => 'required|string|max:11',
+            'cep_cliente' => 'required|string|max:8',
+            'logradouro_cliente' => 'required|string|max:255',
+            'numero_endereco_cliente' => 'required|string|max:10',
+            'bairro_cliente' => 'required|string|max:255',
+            'cidade_cliente' => 'required|string|max:255',
+            'estado_cliente' => 'required|string|max:2',
 
         ];
     }

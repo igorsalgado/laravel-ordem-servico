@@ -28,11 +28,16 @@
                                 required>
                         </div>
                         <div class="mb-4">
+                            <label for="cep_cliente" class="block text-sm font-medium text-white">CEP</label>
+                            <input type="text" name="cep_cliente" id="cep_cliente"
+                                class="block w-full mt-1 text-gray-900" value="{{ $cliente->cep_cliente }}" required>
+                        </div>
+                        <div class="mb-4">
                             <label for="logradouro_cliente"
                                 class="block text-sm font-medium text-white">Logradouro</label>
                             <input type="text" name="logradouro_cliente" id="logradouro_cliente"
                                 class="block w-full mt-1 text-gray-900" value="{{ $cliente->logradouro_cliente }}"
-                                required>
+                                readonly required>
                         </div>
                         <div class="mb-4">
                             <label for="numero_endereco_cliente"
@@ -44,24 +49,22 @@
                         <div class="mb-4">
                             <label for="bairro_cliente" class="block text-sm font-medium text-white">Bairro</label>
                             <input type="text" name="bairro_cliente" id="bairro_cliente"
-                                class="block w-full mt-1 text-gray-900" value="{{ $cliente->bairro_cliente }}" required>
+                                class="block w-full mt-1 text-gray-900" value="{{ $cliente->bairro_cliente }}" readonly
+                                required>
                         </div>
                         <div class="mb-4">
                             <label for="cidade_cliente" class="block text-sm font-medium text-white">Cidade</label>
                             <input type="text" name="cidade_cliente" id="cidade_cliente"
-                                class="block w-full mt-1 text-gray-900" value="{{ $cliente->cidade_cliente }}" required>
+                                class="block w-full mt-1 text-gray-900" value="{{ $cliente->cidade_cliente }}" readonly
+                                required>
                         </div>
                         <div class="mb-4">
                             <label for="estado_cliente" class="block text-sm font-medium text-white">Estado</label>
                             <input type="text" name="estado_cliente" id="estado_cliente"
-                                class="block w-full mt-1 text-gray-900" value="{{ $cliente->estado_cliente }}"
+                                class="block w-full mt-1 text-gray-900" value="{{ $cliente->estado_cliente }}" readonly
                                 required>
                         </div>
-                        <div class="mb-4">
-                            <label for="cep_cliente" class="block text-sm font-medium text-white">CEP</label>
-                            <input type="text" name="cep_cliente" id="cep_cliente"
-                                class="block w-full mt-1 text-gray-900" value="{{ $cliente->cep_cliente }}" required>
-                        </div>
+
                         <button type="submit"
                             class="inline-block px-3 py-1 font-bold text-white bg-green-500 rounded hover:bg-green-700">Atualizar</button>
                     </form>
@@ -69,4 +72,5 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/buscar_cep.js') }}"></script>
 </x-app-layout>
