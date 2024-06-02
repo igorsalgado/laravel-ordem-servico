@@ -88,7 +88,7 @@
                         </form>
 
                         <div class="flex justify-end mt-6">
-                            <form action="" method="POST">
+                            <form action="{{ route('ordens.pdf', $ordem->id) }}" method="GET">
                                 @csrf
                                 <button type="submit"
                                     class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">

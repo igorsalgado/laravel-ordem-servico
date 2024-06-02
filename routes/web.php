@@ -42,6 +42,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //Requisições
     Route::get('/buscar-veiculos/{clienteId}', [VeiculoController::class, 'buscarVeiculos']);
     Route::get('/selecionar-servicos', [OrdemServicoController::class, 'selecionarServicos']);
+    Route::get('ordens/{ordem}/pdf', [OrdemServicoController::class, 'gerarPDF'])->name('ordens.pdf');
 });
 
 

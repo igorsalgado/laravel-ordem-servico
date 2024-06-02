@@ -8,6 +8,7 @@ use App\Models\Veiculo;
 use App\Models\OrdemServico;
 use Illuminate\Http\Request;
 use App\Http\Requests\OrdemServicoRequest;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrdemServicoController extends Controller
 {
@@ -90,5 +91,13 @@ class OrdemServicoController extends Controller
     {
         $servicos = Servico::all();
         return response()->json(['servicos' => $servicos]);
+    }
+
+    public function gerarPDF(OrdemServico $ordem)
+    {
+        $ordem->load('cliente', 'veiculo', 'servicos');
+
+        $pdf = Pdf::loadView('ordens.pdf', compact('ordem'));
+        return $pdf->download('ordem_servico_00' . $ordem->id . '.pdf');
     }
 }
