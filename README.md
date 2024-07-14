@@ -1,5 +1,11 @@
 # Sistema de Gerenciamento de Ordens de Serviço para Oficina
 
+# Utilei o Fly.io para subir esta aplicação, você pode acessar atraveís do link
+https://laravel-ordem-servico.fly.dev/
+
+Login: demo
+senha: demo1234
+
 Este é um sistema de gerenciamento de ordens de serviço desenvolvido em Laravel. Ele permite que você registre os clientes e seus respectivos veículos, além de registrar os serviços oferecidos para por fim, gerar uma ordem de serviço com os valores finais e informações do cliente. Além disso, oferece a funcionalidade de gerar um PDF com os detalhes de uma ordem específica.
 
 ## Funcionalidades
@@ -43,3 +49,8 @@ Este é um sistema de gerenciamento de ordens de serviço desenvolvido em Larave
     - Inicie o servidor de desenvolvimento executando `php artisan serve`.
 
 5. Acesse o sistema em seu navegador.
+
+
+
+
+
